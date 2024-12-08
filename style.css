@@ -1,0 +1,91 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Rubik+80s+Fade&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik+80s+Fade&display=swap");
+
+body {
+  background-color: rgb(12, 22, 59);
+}
+h1 {
+  font-family: "Rubik 80s Fade", serif;
+  font-size: 3em;
+  line-height: 1em;
+  color: rgb(12, 22, 59);
+  position: relative;
+}
+.banner {
+  width: 100%;
+  height: 98vh;
+  text-align: center;
+  overflow: hidden;
+  position: relative;
+  background-color: rgb(235, 235, 223);
+}
+.banner .slider {
+  position: absolute;
+  width: 200px;
+  height: 250px;
+  top: 20%;
+  left: calc(50% - 100px);
+  transform-style: preserve-3d;
+  transform: perspective(1000px);
+  animation: autoRun 40s linear infinite;
+}
+
+@keyframes autoRun {
+  from {
+    transform: perspective(1000px) rotateY(0deg);
+  }
+  to {
+    transform: perspective(1000px) rotateY(360deg);
+  }
+}
+
+.banner .slider .item {
+  position: absolute;
+  inset: 0 0 0 0;
+  transform: rotateY(
+      calc((var(--position) - 1) * (360 / var(--quantity)) * 1deg)
+    )
+    translateZ(550px);
+}
+.banner .slider .item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+.banner .content {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1400px, 100vw);
+  height: max-content;
+  padding: 100px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+.banner .content h1::after {
+  position: absolute;
+  inset: 0 0 0 0;
+  content: attr(data-content);
+  z-index: 2;
+}
+.banner .content .author {
+  font-family: "Courier New", Courier, monospace;
+  text-align: left;
+  max-width: 325px;
+  color: rgb(12, 22, 59);
+  bottom: 0;
+}
+.banner .content .model {
+  background-image: url(Images/selfphoto.png);
+  width: 100%;
+  height: 75vh;
+  position: absolute;
+  bottom: 0;
+  background-size: auto 130%;
+  background-repeat: no-repeat;
+  background-position: top center;
+}
