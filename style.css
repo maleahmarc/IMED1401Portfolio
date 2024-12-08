@@ -78,6 +78,7 @@ h1 {
   max-width: 325px;
   color: rgb(12, 22, 59);
   bottom: 0;
+  padding-left: 2%;
 }
 .banner .content .model {
   background-image: url(Images/selfphoto.png);
